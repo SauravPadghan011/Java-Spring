@@ -7,7 +7,7 @@
          xsi:schemeLocation="
                     http://java.sun.com/xml/ns/javaee
                     http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-  <display-name>Spring MVC Application</display-name>
+  <display-name>Archetype Created Web Application</display-name>
 
   <!-- Step 1: Configure Spring MVC Dispatcher Servlet -->
   <servlet>
