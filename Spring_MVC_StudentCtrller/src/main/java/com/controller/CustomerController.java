@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/customer")
@@ -41,6 +42,7 @@ public class CustomerController {
      * Also We have to use bindingResult along with ModelAttribute always
      */
     public String processForm(@Valid @ModelAttribute("customer") CustomerModel customer, BindingResult bindingResult) {
+//        System.out.println(customer.getDate());
         if(bindingResult.hasErrors())
             return "customer-form";
         return "customer-display";

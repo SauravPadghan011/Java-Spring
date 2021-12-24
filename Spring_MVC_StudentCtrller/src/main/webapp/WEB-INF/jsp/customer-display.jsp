@@ -8,5 +8,7 @@
 </head>
 <body>
     <p>Customer Name: <span>${customer.firstName}</span>&nbsp;<span>${customer.lastName}</span></p>
+    <p>Pincode: <span>${customer.pincode}</span>
+    <p>Date: <span>${customer.date}</span>
 </body>
 </html>

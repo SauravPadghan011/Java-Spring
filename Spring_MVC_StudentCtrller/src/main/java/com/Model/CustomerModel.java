@@ -1,9 +1,8 @@
 package com.Model;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class CustomerModel {
 
@@ -23,6 +22,11 @@ public class CustomerModel {
     @Min(value = 0, message = "Field should be greater than or equal 0")
     @Max(value = 10, message = "Field should be less than or equal to 10")
     private Integer freePasses;
+
+    @Pattern(regexp = "^[0-9]{6}", message = "Invalid pincode")
+    private String pincode;
+
+    private String date;
 
     public String getFirstName() {
         return firstName;
@@ -46,5 +50,24 @@ public class CustomerModel {
 
     public void setFreePasses(Integer freePasses) {
         this.freePasses = freePasses;
+    }
+
+    public String getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(String pincode) {
+        this.pincode = pincode;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+//        Date dateD = new Date();
+//        SimpleDateFormat dateSimple = new SimpleDateFormat("dd/MM/yyyy");
+//        this.date = dateSimple.format(dateD);
     }
 }

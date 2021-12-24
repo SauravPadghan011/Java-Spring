@@ -23,6 +23,13 @@
                     <form:errors path="freePasses" cssClass="error"></form:errors>
 
                     <br><br>
+                    Pincode<sup>*</sup> : <form:input path="pincode" placeholder="Pincode" />
+                    <form:errors path="pincode" cssClass="error"></form:errors>
+
+                    <br><br>
+                    Date: <form:input type="date" path="date" />
+
+                    <br><br>
                     <input type="submit" value="Submit">
                 </form:form>
             </div>
