@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class PerformDBOperations {
+public class ReadOperations {
     public static void main(String[] args) {
         SessionFactory sessionFactory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -15,7 +15,7 @@ public class PerformDBOperations {
         Session session = sessionFactory.getCurrentSession();
 
         try {
-            Student student1 = new Student("Amit", "Amit", "amit@gmail.com");
+            Student student1 = new Student("Tony", "Stark", "tony@gmail.com");
 
             //Start the transaction
             session.beginTransaction();
