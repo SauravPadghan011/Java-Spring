@@ -42,10 +42,4 @@ public class TeamProperties implements Team{
     public int getNoOfMembers() {
         return noOfMembers;
     }
-
-
-    @Override
-    public String toString() {
-        return String.format("Team Name: %s\nNo of Members: %s", teamName, noOfMembers);
-    }
 }
