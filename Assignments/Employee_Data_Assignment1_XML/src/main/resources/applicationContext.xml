@@ -7,19 +7,31 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="userBean" class="user.UserProperties">
-        <constructor-arg ref="addressBean" />
-<!--        <property name="team" ref="teamBean"/>-->
-    </bean>
 
-    <bean id="addressBean" class="address.AddressProperties"/>
-
+    <!-- Location of the properties file -->
     <context:property-placeholder location="classpath:teams.properties"/>
+    <!-- Bean for TeamProperties file -->
     <bean id="teamBean" class="team.TeamProperties">
+        <!-- Constructor Injection Referral to ProjectProperties class -->
         <constructor-arg ref="projectBean" />
+
+        <!-- Fetching the values from properties file and store into the team class fields -->
         <property name="teamName" value="${teamName}"/>
         <property name="noOfMembers" value="${teamMember}"/>
     </bean>
 
+    <!-- Bean for AddressProperties class -->
+    <bean id="addressBean" class="address.AddressProperties"/>
+
+    <!-- Bean for ProjectProperties Class -->
     <bean id="projectBean" class="project.ProjectProperties"/>
+
+    <!--  Bean for UserProperties  -->
+    <bean id="userBean" class="user.UserProperties">
+        <!-- Constructor Injection Referral to AddressProperties class -->
+        <constructor-arg ref="addressBean" />
+
+        <!-- Setter Injection Referral to TeamProperties class -->
+        <property name="team" ref="teamBean"/>
+    </bean>
 </beans>

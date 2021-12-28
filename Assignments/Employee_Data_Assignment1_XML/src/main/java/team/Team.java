@@ -10,6 +10,6 @@ public interface Team {
     String getTeamName();
     int getNoOfMembers();
 
-    void Projects(ArrayList<String> list);
+    void setProjects(ArrayList<String> list);
     void getProjects();
 }

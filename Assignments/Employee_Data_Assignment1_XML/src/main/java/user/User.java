@@ -1,6 +1,5 @@
 package user;
 
-import team.Team;
 
 import java.util.ArrayList;
 
@@ -14,6 +13,8 @@ public interface User {
     void setCity(String city);
     void setState(String state);
     void setPincode(String pincode);
+
+    void setList(ArrayList<String> projectList);
 
 //    void setList(ArrayList<String> list);
 }

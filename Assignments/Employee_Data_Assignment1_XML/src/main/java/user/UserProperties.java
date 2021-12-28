@@ -6,9 +6,16 @@ import team.Team;
 import java.util.ArrayList;
 
 public class UserProperties implements User{
+    /**
+     * The user class properties which takes
+     */
     private String name;
     private String phone;
 
+    /**
+     * setName stores the name of the user.
+     * setPhone stores the phone number of the user.
+     */
     @Override
     public void setName(String name) {
         this.name = name;
@@ -20,23 +27,17 @@ public class UserProperties implements User{
     }
 
 
-
-    // Constructor Injection
+    /**
+     * Performing the Constructor Injection for Address Class
+     */
     Address address;
     public UserProperties(Address address) {
         this.address = address;
     }
 
-//    Team team;
-//    public void setTeamDetails(Team team) {
-//        this.team = team;
-//    }
-//    ArrayList<String> list = new ArrayList<>();
-//    @Override
-//    public void setList(ArrayList<String> list) {
-//        team.setProjects(list);
-//    }
-
+    /**
+     * Store the address information into AddressProperties class
+     */
     @Override
     public void setAddressLine1(String addressLine1) {
         address.setAddressLine1(addressLine1);
@@ -63,7 +64,22 @@ public class UserProperties implements User{
     }
 
 
+    /**
+     * Performing Setter Injection for Team Class
+     */
+    Team team;
+    //  setter method which is going to be injected
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 
+    // Add the projects into the Project class
+    @Override
+    public void setList(ArrayList<String> projectList) {
+        team.setProjects(projectList);
+    }
+
+    // Display the user Details
     @Override
     public void getUserDetails() {
         System.out.println("Name: "+name);
@@ -73,9 +89,8 @@ public class UserProperties implements User{
         System.out.println("City: "+address.getCity());
         System.out.println("State: "+address.getState());
         System.out.println("Pincode: "+address.getPincode());
-//        System.out.println("Team Name: "+team.getTeamName());
-//        System.out.println("No of Members in Team: "+team.getNoOfMembers());
-//        team.getProjects();
-
+        System.out.println("Team Name: "+team.getTeamName());
+        System.out.println("Team: "+team.getNoOfMembers());
+        team.getProjects();
     }
 }
