@@ -1,6 +1,6 @@
 package team;
 
-import project.Project;
+import project.ProjectProperties;
 
 import java.util.ArrayList;
 
@@ -9,12 +9,12 @@ public class TeamProperties implements Team{
     private String teamName;
     private int noOfMembers;
 
-    Project project;
-    public TeamProperties (Project project){
+    ProjectProperties project;
+    public TeamProperties (ProjectProperties project){
         this.project = project;
     }
     @Override
-    public void setProjects(ArrayList<String> list) {
+    public void Projects(ArrayList<String> list) {
         project.setProjects(list);
     }
     @Override

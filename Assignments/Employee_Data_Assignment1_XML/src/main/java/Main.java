@@ -1,8 +1,6 @@
-import address.AddressProperties;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import team.Team;
 import user.User;
-import user.UserProperties;
 
 import java.util.ArrayList;
 
@@ -22,7 +20,7 @@ public class Main {
 
         ArrayList<String> projectList = new ArrayList<>();
         projectList.add("Chat App");
-        projectList.add("Infinity Energy");
+        projectList.add("Bird Detection");
 //        user1.setList(projectList);
 
 //        Team team = context.getBean("teamBean", Team.class);
@@ -34,7 +32,7 @@ public class Main {
         user1.getUserDetails();
         System.out.println(team);
 
-        team.setProjects(projectList);
+        team.Projects(projectList);
         team.getProjects();
     }
 }

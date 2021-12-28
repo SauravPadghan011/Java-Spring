@@ -27,7 +27,7 @@ public class UserProperties implements User{
         this.address = address;
     }
 
-    Team team;
+//    Team team;
 //    public void setTeamDetails(Team team) {
 //        this.team = team;
 //    }
