@@ -58,7 +58,7 @@
         <div class="background-box">
             <h2>Registration Form</h2>
 
-            <form:form action="displayForm" modelAttribute="student">
+            <form:form action="successForm" modelAttribute="student">
                 Roll Number<sup>*</sup>: <form:input path="rollNo" cssClass="input-text"
                     placeholder="Enter Roll Number" />
                 First Name<sup>*</sup>: <form:input path="firstName" cssClass="input-text"
@@ -80,5 +80,7 @@
                 <input type="submit" class="button" value="Submit">
             </form:form>
         </div>
+
+        <a href="/student/successForm"><button>Try it</button></a>
     </body>
 </html>

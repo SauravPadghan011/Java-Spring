@@ -33,5 +33,12 @@
             <p class="display">Semester: ${student.semester}</p>
             <p class="display">Percentage: ${student.percentage}</p>
         </div>
+
+        <button onclick="myFunction()">Try it</button>
+                <script>
+                function myFunction() {
+                  alert("${student.percentage}");
+                }
+                </script>
     </body>
 </html>

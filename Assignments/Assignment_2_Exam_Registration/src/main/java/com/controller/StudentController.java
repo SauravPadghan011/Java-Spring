@@ -21,8 +21,14 @@ public class StudentController {
     @RequestMapping("/displayForm")
     public String displayForm(@ModelAttribute("student") StudentModel student) {
         System.out.printf("%s %s\n", student.getFirstName(), student.getLastName());
-        student.setPercentage(0);
         System.out.println(student.getPercentage());
         return "student-display";
+    }
+
+    @RequestMapping("/successForm")
+    public String successForm(@ModelAttribute("student") StudentModel student) {
+        System.out.printf("%s %s\n", student.getFirstName(), student.getLastName());
+        student.setPercentage(0);
+        return "student-successful";
     }
 }

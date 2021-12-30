@@ -39,6 +39,7 @@
 
                 <a href="/student/showForm"><button class="button">Register</button></a>
                 <a href="/student/displayForm"><button class="button button2">Display</button></a>
+                <a href="/student/message"><button class="button button2">Message</button></a>
 
         </div>
     </body>
