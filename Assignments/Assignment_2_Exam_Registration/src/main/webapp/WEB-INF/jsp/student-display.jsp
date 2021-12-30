@@ -31,6 +31,7 @@
             <p class="display">Roll Number: ${student.rollNo}</p><br>
             <p class="display">Student Name: ${student.firstName}&nbsp;${student.lastName}</p><br>
             <p class="display">Semester: ${student.semester}</p>
+            <p class="display">Percentage: ${student.percentage}</p>
         </div>
     </body>
 </html>

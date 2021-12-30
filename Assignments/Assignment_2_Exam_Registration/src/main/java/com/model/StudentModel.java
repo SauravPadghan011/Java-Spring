@@ -16,8 +16,8 @@ public class StudentModel {
     private Integer osMarks;
     private Integer dbmsMarks;
     private Integer wdMarks;
-    private Integer[] marks;
-    private Integer totalMarks;
+    private Integer[] marks = new Integer[5];
+    private Integer percentage = 0;
 
     public StudentModel() {
         semesterOptions = new LinkedHashMap<>();
@@ -117,22 +117,23 @@ public class StudentModel {
     }
 
     public void setMarks(Integer[] marks) {
-        marks[0] = this.javaMarks;
-        marks[1] = this.dsaMarks;
-        marks[2] = this.osMarks;
-        marks[3] = this.dbmsMarks;
-        marks[4] = this.wdMarks;
+        marks[0] = javaMarks;
+        marks[1] = dsaMarks;
+        marks[2] = osMarks;
+        marks[3] = dbmsMarks;
+        marks[4] = wdMarks;
     }
 
-//    public Integer getTotalMarks() {
-//        return totalMarks;
-//    }
+    public Integer getPercentage() {
+        return percentage;
+    }
 
-    public Integer setTotalMarks() {
-        setMarks(this.marks);
+    public void setPercentage(Integer percentage) {
+        setMarks(marks);
+        Integer totalMarks = 0;
         for(int i=0; i<5; i++) {
-            totalMarks += marks[i];
+           totalMarks += marks[i];
         }
-        return totalMarks;
+        this.percentage =  (totalMarks*100)/500;
     }
 }
