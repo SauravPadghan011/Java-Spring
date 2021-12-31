@@ -14,6 +14,10 @@
                 margin-top: 100px;
             }
 
+            .error {
+                color:red;
+            }
+
             .button {
                 background-color: #4CAF50;  /* Green */
                 border: 2px;
@@ -59,16 +63,21 @@
             <h2>Registration Form</h2>
 
             <form:form action="successForm" modelAttribute="student">
-                Roll Number<sup>*</sup>: <form:input path="rollNo" cssClass="input-text"
+                Roll Number<sup>*</sup>: <form:errors path="rollNo" cssClass="error" />
+                <form:input path="rollNo" cssClass="input-text"
                     placeholder="Enter Roll Number" />
-                First Name<sup>*</sup>: <form:input path="firstName" cssClass="input-text"
-                    placeholder="Enter First Name" />
+
+                First Name<sup>*</sup>: <form:errors path="firstName" cssClass="error" />
+                <form:input path="firstName" cssClass="input-text" placeholder="Enter First Name" />
                 Last Name: <form:input path="lastName" cssClass="input-text" placeholder="Enter Last Name" />
+
 
                 Semester<sup>*</sup>:
                 <form:select path="semester" cssClass="input-text">
                     <form:options items="${student.semesterOptions}" />
                 </form:select>
+                <form:errors path="semester" cssClass="error" />
+
 
                 <h3>Enter Marks</h3>
                     Programming in Java: <form:input path="javaMarks" cssClass="marks" placeholder="Enter Java Marks"/>

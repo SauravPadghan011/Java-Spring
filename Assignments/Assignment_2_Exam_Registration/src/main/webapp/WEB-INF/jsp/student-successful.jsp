@@ -27,23 +27,23 @@
     </head>
 
     <body>
-    <div class="background-box">
-                <h2>Student Information</h2>
-                <p class="display">Roll Number: ${student.rollNo}</p><br>
-                <p class="display">Student Name: ${student.firstName}&nbsp;${student.lastName}</p><br>
-                <p class="display">Semester: ${student.semester}</p>
-                <p class="display">Percentage: ${student.percentage}</p>
-            </div>
-<script>
-        alert("${student.percentage}");
-        if(${student.percentage} == 0) {
-            alert("Failed");
-        } else {
-            alert("Success");
-            window.location = "/student/displayForm";
-        }
-
-
+        <div class="background-box">
+            <h2>Student Information</h2>
+            <p class="display">Roll Number: ${student.rollNo}</p><br>
+            <p class="display">Student Name: ${student.firstName}&nbsp;${student.lastName}</p><br>
+            <p class="display">Semester: ${student.semester}</p>
+            <p class="display">Percentage: ${student.percentage}</p>
+        </div>
+        <script>
+            alert("${student.percentage}");
+            alert("${student.totalMarks}");
+            if(${student.percentage} == 0) {
+                <%--alert("Failed");--%>
+                window.location = "/student/showForm";
+            } else {
+                <%-- alert("Success");--%>
+                window.location = "/student/displayForm";
+            }
         </script>
     </body>
 </html>

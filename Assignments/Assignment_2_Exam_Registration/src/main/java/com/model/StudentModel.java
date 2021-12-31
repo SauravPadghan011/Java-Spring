@@ -1,13 +1,21 @@
 package com.model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class StudentModel {
 
-    private Integer rollNo;
+    @NotNull(message = "Field Cannot be Empty")
+    @Pattern(regexp = "FSJ[0-9]{4}$", message = "Roll No. should be like this FSJXXXX")
+    private String rollNo;
+
+    @NotNull(message = "Field Cannot be Empty")
     private String firstName;
     private String lastName;
+
+    @NotNull(message = "Field Cannot be Empty")
     private String semester;
     private Map<String, String> semesterOptions;
 
@@ -17,7 +25,8 @@ public class StudentModel {
     private Integer dbmsMarks;
     private Integer wdMarks;
     private Integer[] marks = new Integer[5];
-    private Integer percentage = 0;
+    private Integer totalMarks = 0;
+    private Double percentage = 0.0;
 
     public StudentModel() {
         semesterOptions = new LinkedHashMap<>();
@@ -31,11 +40,11 @@ public class StudentModel {
         semesterOptions.put("Eight Semester", "Eight Semester");
     }
 
-    public Integer getRollNo() {
+    public String getRollNo() {
         return rollNo;
     }
 
-    public void setRollNo(Integer rollNo) {
+    public void setRollNo(String rollNo) {
         this.rollNo = rollNo;
     }
 
@@ -124,16 +133,24 @@ public class StudentModel {
         marks[4] = wdMarks;
     }
 
-    public Integer getPercentage() {
+    public Integer getTotalMarks() {
+        return totalMarks;
+    }
+
+    public void setTotalMarks() {
+        setMarks(marks);
+        for(int i=0; i<5; i++) {
+            this.totalMarks += marks[i];
+        }
+    }
+
+    public Double getPercentage() {
         return percentage;
     }
 
-    public void setPercentage(Integer percentage) {
-        setMarks(marks);
-        Integer totalMarks = 0;
-        for(int i=0; i<5; i++) {
-           totalMarks += marks[i];
-        }
-        this.percentage =  (totalMarks*100)/500;
+    public void setPercentage() {
+        setTotalMarks();
+        this.percentage = (Double.valueOf(totalMarks)*100)/500;
     }
+
 }
