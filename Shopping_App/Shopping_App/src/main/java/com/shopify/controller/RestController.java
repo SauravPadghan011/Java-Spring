@@ -35,8 +35,8 @@ public class RestController {
      * Display the inventory.
      */
     @RequestMapping(value = "/inventory", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public Inventory inventory(@RequestParam(value = "ordered", defaultValue = "0") Integer ordered) {
-        return new Inventory(ordered, inventoryObj.getPrice(), inventoryObj.getAvailable()-ordered);
+    public Inventory inventory() {
+        return new Inventory(inventoryObj.getOrdered(), inventoryObj.getPrice(), inventoryObj.getAvailable());
     }
 
     /**
@@ -81,7 +81,9 @@ public class RestController {
             Integer discount = couponsObj.getCouponList().get(coupon);
             Integer offPrice = price - (price*discount)/100;
             Object order = new Order(orderId, 1, qty, offPrice, coupon);
-            inventoryObj = new Inventory(inventoryObj.getOrdered(), inventoryObj.getPrice(), inventoryObj.getAvailable()-qty);
+            Integer quantity = inventoryObj.getOrdered()+qty;
+            couponsObj.getCouponList().remove(coupon);
+            inventoryObj = new Inventory(quantity, inventoryObj.getPrice(), inventoryObj.getAvailable()-qty);
 
             LocalDateTime dateToday = LocalDateTime.now();
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
