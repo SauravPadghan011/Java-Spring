@@ -45,9 +45,9 @@
     <body>
         <sql:setDataSource var = "snapshot" driver = "com.mysql.cj.jdbc.Driver"
                       url = "jdbc:mysql://localhost:3306/edyoda"
-                      user = "root"  password = "Padians@072"/>
+                      user = "root"  password = "xxxx"/>
         <sql:query dataSource = "${snapshot}" var = "result">
-                 SELECT * FROM exam;
+                 SELECT * FROM exam ORDER BY totalMarks;
         </sql:query>
 
         <div class="background-box">
